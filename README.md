@@ -2,15 +2,6 @@
 
 **Note:** This project is intended for educational and demonstration purposes. Depending on your requirements, alternative methods such as Wi-Fi or Bluetooth communication may offer more efficient solutions for similar use cases.
 
-## 📚 Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Web Interface Preview](#web-interface-preview)
-- [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-
 ---
 
 ## ✨ Introduction
