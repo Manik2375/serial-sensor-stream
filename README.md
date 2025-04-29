@@ -2,15 +2,6 @@
 
 **Note:** This project is intended for educational and demonstration purposes. Depending on your requirements, alternative methods such as Wi-Fi or Bluetooth communication may offer more efficient solutions for similar use cases.
 
-## 📚 Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Web Interface Preview](#web-interface-preview)
-- [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-
 ---
 
 ## ✨ Introduction
@@ -43,12 +34,12 @@ This project demonstrates how to retrieve sensor data — such as **temperature*
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/Manik2375/repositoryName
+   git clone https://github.com/Manik2375/serial-sensor-stream
    ```
 
 2. **Navigate into the project folder:**
     ```bash 
-    cd repositoryName
+    cd serial-sensor-stream
     ```
 
 3. **Install required Node.js dependencies:**
@@ -69,7 +60,7 @@ Use this project to easily visualize sensor readings from your Arduino on any de
 ## 📂 Project Structure
 
 ```plaintext
-repositoryName/
+serial-sensor-stream/
 ├── web/               
 │   ├── index.html
 │   ├── style.css
