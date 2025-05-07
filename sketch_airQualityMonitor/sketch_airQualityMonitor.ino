@@ -21,6 +21,7 @@ DHT dht(DHTPIN, DHTTYPE);
 float temp;
 float humidity;
 int airQualityRaw;
+int cigarattesNum;
 
 void setup() {
   Serial.begin(9600);
@@ -67,12 +68,12 @@ void dhtSensorRead() {
   display.setTextColor(SSD1306_WHITE);
   display.setTextSize(1);
 
-  display.setCursor(0, 26);
+  display.setCursor(0, 28);
   display.print("Temp: ");
   display.print(temp);
   display.println(" C");
 
-  display.setCursor(0, 36);
+  display.setCursor(0, 38);
   display.print("Humidity: ");
   display.print(humidity);
   display.print(" %");
@@ -81,13 +82,31 @@ void dhtSensorRead() {
 
 
 void airSensorRead() {
-  airQualityRaw = analogRead(MQ135_PIN);
+  airQualityRaw = analogRead(MQ135_PIN) / 2 + 25;
+
+  if (airQualityRaw < 50) {
+    cigarattesNum = 0;
+  } else if (airQualityRaw < 100) {
+    cigarattesNum = 1;
+  } else if (airQualityRaw < 150) {
+    cigarattesNum = 2;
+  } else if (airQualityRaw < 200) {
+    cigarattesNum = 4;
+  } else if (airQualityRaw < 300) {
+    cigarattesNum = 8;
+  } else {
+    cigarattesNum = 10;
+  }
 
   display.setTextColor(SSD1306_WHITE);
   display.setTextSize(1);
   display.setCursor(0, 5);
-  display.print("Air Quality: ");
+  display.print("Air Quality:");
   display.println(airQualityRaw);
+
+  display.setCursor(0, 16);
+  display.print(F("Cigarattes: ~"));
+  display.println(cigarattesNum);
 }
 
 
