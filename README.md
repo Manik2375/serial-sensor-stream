@@ -63,8 +63,7 @@ Use this project to easily visualize sensor readings from your Arduino on any de
 serial-sensor-stream/
 ├── web/               
 │   ├── index.html
-│   ├── style.css
-│   └── app.js
+│   └── style.css
 ├── sketch_airQualityMonitor/ 
 │   └── sketch_airQualityMonitor.ino
 ├── server.js                
@@ -76,3 +75,5 @@ serial-sensor-stream/
 - **web**  contains the HTML/CSS/JS for web interface
 
 - **sketch_airQualityMonitor** contains the Arduino code for sensor data acquisition
+
+(By the way, there's also [Web Serial API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API) which you can use to directly read from serial ports, without using node.js but watchout for its support!)
