@@ -32,6 +32,14 @@
                 <h2 title="The lower the better">Air Quality: 🍃</h2>
                 <div class="output">...</div>
             </div>
+            <div class="card cigarattes">
+                <h2 title="Approximation to number of cigarattes">Cigarattes: 🚬</h2>
+                <div class="output">...</div>
+            </div>
+            <div class="card description">
+                <h2>Description:</h2>
+                <div class="output">...analysing...</div>
+            </div>
         </div>
         <p class="status bad">Connecting with socket at localhost:3000</p>
         <button class="toggle">Toggle the light</button>
@@ -65,6 +73,8 @@
         const tempOutput = document.querySelector(".temperature .output");
         const humidityOutput = document.querySelector(".humidity .output");
         const airQualityOutput = document.querySelector(".airQuality .output");
+        const cigarattesOutput = document.querySelector(".cigarattes .output");
+        const description = document.querySelector(".description .output");
         const status = document.querySelector(".status");
         const cat = document.querySelector(".cat")
 
@@ -74,9 +84,28 @@
             cat.classList.remove("bad");
         })
         socket.on("serial-connect", (data) => {
-            tempOutput.textContent = data.temperature + "°C";
-            humidityOutput.textContent = data.humidity + "%";
-            airQualityOutput.textContent = data.airQuality
+            const { temperature, humidity, airQuality, cigarattes } = data;
+            tempOutput.textContent = temperature + "°C";
+            humidityOutput.textContent = humidity + "%";
+            airQualityOutput.textContent = airQuality
+            cigarattesOutput.textContent = "~" + cigarattes;
+
+
+            if (airQuality >= 0 && airQuality <= 50) {
+                description.textContent = "Air quality is excellent with no health risks. Enjoy outdoor activities safely.";
+            } else if (airQuality <= 100) {
+                description.textContent = "Air quality is acceptable, but sensitive people might notice minor effects. Take care if you're unusually sensitive.";
+            } else if (airQuality <= 150) {
+                description.textContent = "Sensitive groups like the elderly or children may feel effects. Others are generally fine but should monitor exposure.";
+            } else if (airQuality <= 200) {
+                description.textContent = "Everyone may start feeling health effects; sensitive groups will be more impacted. Limit outdoor activities if possible.";
+            } else if (airQuality <= 300) {
+                description.textContent = "Serious health alert: everyone may experience stronger effects. Avoid outdoor activities to stay safe.";
+            } else if (airQuality <= 500) {
+                description.textContent = "Emergency warning: the air is hazardous, and everyone is at risk. Stay indoors and avoid all outdoor exertion.";
+            } else {
+                description.textContent = "Invalid AQI value.";
+            }
         })
         socket.on("serial-disconnect", (data) => {
             status.innerText = data;

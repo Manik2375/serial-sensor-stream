@@ -68,12 +68,12 @@ void dhtSensorRead() {
   display.setTextColor(SSD1306_WHITE);
   display.setTextSize(1);
 
-  display.setCursor(0, 28);
+  display.setCursor(0, 34);
   display.print("Temp: ");
   display.print(temp);
   display.println(" C");
 
-  display.setCursor(0, 38);
+  display.setCursor(0, 44);
   display.print("Humidity: ");
   display.print(humidity);
   display.print(" %");
@@ -123,7 +123,9 @@ void loop() {
   Serial.print(F("°C\tHumidity: "));
   Serial.print(humidity);
   Serial.print(F("%\tAir Quality (Raw): "));
-  Serial.println(airQualityRaw);
+  Serial.print(airQualityRaw);
+  Serial.print(F("\tCigarattes: "));
+  Serial.println(cigarattesNum);
 
   const char state = Serial.read();
 

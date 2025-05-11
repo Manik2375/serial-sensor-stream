@@ -12,7 +12,7 @@ export default function setupSerial(io) {
 
   parser.on("data", (data) => {
 
-    const regex = /Temperature:\s(\d+\.\d+)°C\sHumidity:\s(\d+\.\d+)%\sAir\sQuality\s\(Raw\):\s(\d+)/
+    const regex = /Temperature:\s(\d+\.\d+)°C\sHumidity:\s(\d+\.\d+)%\sAir\sQuality\s\(Raw\):\s(\d+)\sCigarattes:\s(\d+)/
     const match = data.match(regex);
 
     if (!match) {
@@ -23,7 +23,8 @@ export default function setupSerial(io) {
     const parsedData = {
       temperature: parseFloat(match[1]),
       humidity: parseFloat(match[2]),
-      airQuality: parseInt(match[3])
+      airQuality: parseInt(match[3]),
+      cigarattes: parseInt(match[4])
     }
 
     io.emit("serial-connect", parsedData);
