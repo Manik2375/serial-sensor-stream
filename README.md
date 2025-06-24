@@ -20,6 +20,8 @@ This project demonstrates how to retrieve sensor data — such as **temperature*
 
 ![Web Interface](./assets/webinterface.webp)
 
+[(Arduino Circuit)](https://github.com/Manik2375/serial-sensor-stream/tree/main/sketch_airQualityMonitor)
+ 
 ---
 
 ## 🛠️ Technologies Used
